@@ -63,7 +63,7 @@
 
 /* gradient text on emphasised words (e-square's signature) */
 .es-grad-text {
-  background: linear-gradient(90deg, #a855f7, #22d3ee);
+  background: linear-gradient(90deg, #c084fc, #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -134,11 +134,31 @@
 }
 .es-wordmark { font-weight: 700; color: var(--es-ink); font-size: 1.12rem; }
 .es-nav__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--es-cyan);
+  font-weight: 500;
+  color: var(--es-muted);
   padding-inline-start: 12px;
   border-inline-start: 1px solid var(--es-line);
+}
+
+/* e-square wordmark lockup, replicating their "E-S▢UARE.io" logo */
+.es-esq { display: inline-flex; align-items: center; gap: 3px; }
+.es-esq__txt {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--es-ink);
+  font-size: 0.82rem;
+}
+.es-esq__mark { inline-size: 13px; block-size: 13px; display: inline-block; transform: translateY(1px); }
+.es-esq__io {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--es-muted);
+  font-size: 0.8rem;
+  margin-inline-start: 1px;
 }
 .es-nav__links { display: flex; gap: 22px; margin-inline-start: auto; }
 .es-nav__link { font-weight: 500; color: var(--es-muted); font-size: 0.95rem; }
@@ -180,35 +200,54 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--es-muted);
-  padding: 7px 15px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--es-fg-2);
+  padding: 8px 18px;
   border: 1px solid var(--es-line);
   border-radius: 999px;
   background: var(--es-glass);
-  margin-block-end: 22px;
+  backdrop-filter: blur(6px);
+  margin-block-end: 26px;
 }
-.es-eyebrow__dot {
-  inline-size: 8px; block-size: 8px; border-radius: 50%;
-  background: linear-gradient(90deg, #10b981, #0891b2);
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
-}
+.es-eyebrow__spark { inline-size: 15px; block-size: 15px; color: var(--es-cyan); flex: none; }
 .es-title {
-  font-size: clamp(2.4rem, 6.4vw, 4.4rem);
+  font-size: clamp(2.7rem, 8vw, 5.5rem);
   font-weight: 700;
   color: var(--es-ink);
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.03em;
 }
 .es-lede {
-  margin: 22px auto 0;
-  font-size: clamp(1.04rem, 2vw, 1.22rem);
-  color: var(--es-fg);
-  max-inline-size: 62ch;
+  margin: 24px auto 0;
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+  color: var(--es-muted);
+  max-inline-size: 60ch;
 }
-.es-hero__cta { margin-block-start: 32px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.es-hero__cta { margin-block-start: 34px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* hero stat trio (e-square's signature: big numbers under the hero CTA) */
+.es-herostats {
+  margin-block-start: clamp(40px, 6vw, 64px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(28px, 8vw, 88px);
+}
+.es-herostat { text-align: center; }
+.es-herostat__k {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 700;
+  color: var(--es-ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.es-herostat__v {
+  margin-block-start: 8px;
+  font-size: 0.9rem;
+  color: var(--es-muted);
+}
 
 /* ── stack (grouped tech, no decoration) ─────────────────── */
 .es-stack { padding: 0 24px clamp(44px, 6vw, 84px); }
@@ -267,7 +306,7 @@
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #a855f7, #22d3ee);
+  background: linear-gradient(90deg, #c084fc, #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -337,7 +376,7 @@
 .es-cv__role { font-weight: 700; color: var(--es-ink); font-size: 1.06rem; }
 .es-cv__org {
   font-weight: 700;
-  background: linear-gradient(90deg, #a855f7, #22d3ee);
+  background: linear-gradient(90deg, #c084fc, #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

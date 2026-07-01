@@ -189,11 +189,12 @@ const EDUCATION: string[] = [
 
 type Stat = { k: string; v: string };
 
-const STATS: Stat[] = [
-  { k: 'npm', v: 'MDP published, with its own MCP server' },
-  { k: 'B.Sc CS', v: 'Afeka College of Engineering' },
-  { k: '5 languages', v: 'TypeScript · JavaScript · Python · Go · C#' },
-  { k: 'Live demos', v: 'Apps you can open in the browser' },
+// e-square's signature hero stat trio (big value + muted label). Honest, from
+// jobs/cv.md: five languages and counting, MDP published, a CS degree.
+const HEROSTATS: Stat[] = [
+  { k: '5+', v: 'Languages I build in' },
+  { k: 'npm', v: 'Open source, with an MCP server' },
+  { k: 'B.Sc', v: 'Computer Science' },
 ];
 
 type StackGroup = { group: string; items: string[] };
@@ -204,6 +205,39 @@ const STACK: StackGroup[] = [
   { group: 'Backend', items: ['Node.js', 'REST APIs', 'MongoDB', 'Go'] },
   { group: 'Cloud & DevOps', items: ['Docker', 'Kubernetes', 'Terraform', 'CI/CD'] },
 ];
+
+// e-square's logo glyph: a rounded square outline with a cyan block in the
+// lower-right corner. Rebuilt from their live mark.
+function ESquareMark() {
+  return (
+    <svg className="es-esq__mark" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="none" stroke="#e4e5ee" strokeWidth="2.2" />
+      <rect x="12.5" y="12.5" width="9" height="9" rx="2" fill="#22d3ee" />
+    </svg>
+  );
+}
+
+// e-square's wordmark: "E-S▢UARE.io", the square glyph standing in for the Q.
+function ESquareWord() {
+  return (
+    <span className="es-esq" aria-label="e-square.io">
+      <span className="es-esq__txt">E-S</span>
+      <ESquareMark />
+      <span className="es-esq__txt">UARE</span>
+      <span className="es-esq__io">.io</span>
+    </span>
+  );
+}
+
+// The sparkle in e-square's hero eyebrow pill.
+function Spark() {
+  return (
+    <svg className="es-eyebrow__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2z" />
+      <path d="M19 3l.7 2.3L22 6l-2.3.7L19 9l-.7-2.3L16 6l2.3-.7L19 3z" opacity="0.7" />
+    </svg>
+  );
+}
 
 export default function EsquareApp() {
   const scope = useRef<HTMLDivElement | null>(null);
@@ -244,7 +278,7 @@ export default function EsquareApp() {
             <span className="es-brand__mark" aria-hidden="true" />
             <span className="es-wordmark">Bar Moshe</span>
           </a>
-          <span className="es-nav__tag">for e-square.io</span>
+          <span className="es-nav__tag">for <ESquareWord /></span>
           <nav className="es-nav__links" aria-label="Sections">
             <a className="es-nav__link" href="#fit">How I fit</a>
             <a className="es-nav__link" href="#work">Work</a>
@@ -263,11 +297,12 @@ export default function EsquareApp() {
           <HeroBackdrop />
           <div className="es-hero__inner">
             <p className="es-eyebrow" data-reveal>
-              <span className="es-eyebrow__dot" aria-hidden="true" />
+              <Spark />
               For e-square.io · Junior Full Stack Developer
             </p>
             <h1 className="es-title" data-reveal>
-              Full-stack, built with <span className="es-grad-text">AI agents</span>.
+              Full-Stack <span className="es-grad-text">Developer</span>,<br />
+              built with <span className="es-grad-text">AI agents</span>.
             </h1>
             <p className="es-lede" data-reveal>
               I am a full-stack developer who works in Cursor, Claude Code, and Codex
@@ -282,6 +317,14 @@ export default function EsquareApp() {
               <a className="es-btn es-btn--ghost" href={CV} target="_blank" rel="noopener noreferrer">
                 Download CV
               </a>
+            </div>
+            <div className="es-herostats" data-reveal>
+              {HEROSTATS.map((s) => (
+                <div className="es-herostat" key={s.k}>
+                  <div className="es-herostat__k">{s.k}</div>
+                  <div className="es-herostat__v">{s.v}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -310,18 +353,6 @@ export default function EsquareApp() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── Stat strip ────────────────────────────────────── */}
-        <section className="es-stats">
-          <div className="es-stats__grid">
-            {STATS.map((s) => (
-              <div className="es-stat" key={s.k} data-reveal>
-                <div className="es-stat__k">{s.k}</div>
-                <div className="es-stat__v">{s.v}</div>
-              </div>
-            ))}
           </div>
         </section>
 
