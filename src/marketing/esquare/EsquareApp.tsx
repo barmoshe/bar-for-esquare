@@ -19,7 +19,7 @@ import './esquare.css';
 const EMAIL =
   'mailto:1barmoshe1@gmail.com?subject=' +
   encodeURIComponent('Application: Junior Full Stack Developer — Bar Moshe');
-const CV = '/cv/Bar_Moshe_CV.pdf';
+const CV = '/Bar_Moshe_CV_eSquare.pdf';
 const WHATSAPP = 'https://wa.me/972546561465';
 const LINKEDIN = 'https://www.linkedin.com/in/barmoshe/';
 const GITHUB = 'https://github.com/barmoshe';
